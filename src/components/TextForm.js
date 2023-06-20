@@ -1,5 +1,6 @@
 
 import React, {useState} from 'react'
+import { toast } from 'react-hot-toast';
 
 export default function TextForm(props){
 
@@ -17,47 +18,57 @@ export default function TextForm(props){
     };
     const handleUpClick = ()=>{
         if(text.length===0){
-            props.showAlert("Text-box is empty","warning");
+            // props.showAlert("Text-box is empty","warning");
+            toast.error("text box is empty !")
             return;
         }
         let newtext=text.toUpperCase();
         setText(newtext);
-        props.showAlert("changed to upper case successfully","success");
+        // props.showAlert("changed to upper case successfully","success");
+        toast.success("changed to Upper Case");
     };
     const handleLoClick=(event)=>{
         if(text.length===0){
-            props.showAlert("Text-box is empty","warning");
+            // props.showAlert("Text-box is empty","warning");
+            toast.error("text box is empty !")
             return;
         } 
         let newtext=text.toLowerCase();
         setText(newtext);
-        props.showAlert("changed to lower case successfully","success");
+        // props.showAlert("changed to lower case successfully","success");
+        toast.success("changed to lower Case")
     }
     const handleClearClick=(event)=>{
         if(text.length===0){
-            props.showAlert("Text-box is empty","warning");
+            // props.showAlert("Text-box is empty","warning");
+            toast.error("text box is empty !")
             return;
         }
         let newtext="";
         setText(newtext);
-        props.showAlert("Textbox cleared successfully","success");
+        // props.showAlert("Textbox cleared successfully","success");
+        toast.success("Textbox cleared")
     }
     const handleExtraSpace =(event)=>{
         if(text.length===0){
-            props.showAlert("Text-box is empty","warning");
+            // props.showAlert("Text-box is empty","warning");
+            toast.error("text box is empty !")
             return;
         } 
         let newtext= text.split(/[ ]+/);
         setText(newtext.join(" "));
-        props.showAlert("Extra spaces removed successfully","success");
+        // props.showAlert("Extra spaces removed successfully","success");
+        toast.success("extra spaces removed")
     }
     const handleCopyClick=(event)=>{
         if(text.length===0){
-            props.showAlert("Text-box is empty","warning");
+            // props.showAlert("Text-box is empty","warning");
+            toast.error("text box is empty !")
             return;
         }
         navigator.clipboard.writeText(text);
-        props.showAlert("Copied to clipboard successfully","success");
+        // props.showAlert("Copied to clipboard successfully","success");
+        toast.success("text copied to clipboard !")
     }
     
     const handleOnChange=(event)=>{
